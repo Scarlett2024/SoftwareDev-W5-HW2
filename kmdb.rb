@@ -158,7 +158,7 @@ puts ""
 movies = Movie.all
 for movie in movies
     studio_id = movie["studio_id"]
-    studio = Studio.find_by({"id" => studio_id}).inspect
+    studio = Studio.find_by({"id" => studio_id})
     puts "#{movie["title"]}  #{movie["year_released"]}  #{movie["rated"]}  #{studio["name"]}"
 end
 
@@ -171,7 +171,7 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 roles = Role.all
 for role in roles
-    movie = Movie.find_by({"id"=>role["movie_id"]}).inspect
-    actor = Actor.find_by({"id"=>role["actor_id"]}).inspect
+    movie = Movie.find_by({"id"=>role["movie_id"]})
+    actor = Actor.find_by({"id"=>role["actor_id"]})
     puts "#{movie["title"]}  #{actor["name"]}  #{role["character_name"]}"
 end
